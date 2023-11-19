@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/poxedexListFragment">
+
+    <fragment
+        android:id="@+id/poxedexListFragment"
+        android:name="com.prmto.poxedex.presentation.poxedex_list.PoxedexListFragment"
+        android:label="PoxedexListFragment"
+        tools:layout="@layout/fragment_poxedex_list">
+        <action
+            android:id="@+id/action_poxedexListFragment_to_poxedexDetailFragment"
+            app:destination="@id/poxedexDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/poxedexDetailFragment"
+        android:name="com.prmto.poxedex.presentation.poxedex_detail.PoxedexDetailFragment"
+        android:label="PoxedexDetailFragment"
+        tools:layout="@layout/fragment_poxedex_detail" />
+</navigation>

@@ -1,9 +1,11 @@
-package com.prmto.poxedex
+package com.prmto.poxedex.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.prmto.poxedex.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding: ActivityMainBinding get() = _binding!!
