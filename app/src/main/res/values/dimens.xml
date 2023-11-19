@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Common Margins -->
+    <dimen name="one_level_margin">4dp</dimen>
+    <dimen name="two_level_margin">8dp</dimen>
+    <dimen name="three_level_margin">12dp</dimen>
+    <dimen name="four_level_margin">16dp</dimen>
+    <dimen name="five_level_margin">20dp</dimen>
+    <dimen name="six_level_margin">24dp</dimen>
+
+    <dimen name="icon_size">24dp</dimen>
+
+    <!-- Poxedex List-->
+    <dimen name="filter_button_size">32dp</dimen>
+
+    <!-- Poke Item-->
+    <dimen name="poke_item_image_size">72dp</dimen>
+</resources>
