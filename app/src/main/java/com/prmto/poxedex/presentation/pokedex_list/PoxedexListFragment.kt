@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.prmto.poxedex.databinding.FragmentPoxedexListBinding
 import com.prmto.poxedex.presentation.pokedex_list.adapter.PokemonListAdapter
+import com.prmto.poxedex.presentation.pokedex_list.sort_dialog.SortDialogFragment
 import com.prmto.poxedex.presentation.util.GridLayoutItemDecoration
 import com.prmto.poxedex.presentation.util.PaginationScrollListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -74,7 +75,7 @@ class PoxedexListFragment : Fragment() {
             }
 
             override fun isLastPage(): Boolean {
-                return false
+                return viewModel.uiState.value.isLastPage
             }
 
             override fun isLoading(): Boolean {
@@ -86,6 +87,13 @@ class PoxedexListFragment : Fragment() {
     private fun setupClickListeners() {
         binding.includeErrorView.btnErrorTryAgain.setOnClickListener {
             viewModel.tryAgainToFetchPokemons()
+        }
+
+        binding.imbSort.setOnClickListener {
+            SortDialogFragment().show(
+                childFragmentManager,
+                SortDialogFragment.TAG
+            )
         }
     }
 

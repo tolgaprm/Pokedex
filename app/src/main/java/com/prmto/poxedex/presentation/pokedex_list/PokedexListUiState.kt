@@ -9,7 +9,8 @@ data class PokedexListUiState(
     @StringRes val errorMessageRes: Int? = null,
     val isSearchActive: Boolean = false,
     val searchQuery: String = "",
-    val sortType: SortType = SortType.NUMBER
+    val sortType: SortType = SortType.NUMBER,
+    val isLastPage: Boolean = false
 )
 
 enum class SortType {

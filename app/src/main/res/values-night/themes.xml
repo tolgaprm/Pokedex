@@ -5,5 +5,7 @@
         <item name="android:colorBackground">@color/white</item>
 
         <item name="fontFamily">@font/poppins</item>
+
+        <item name="radioButtonStyle">@style/Widget.Pokedex.RadioButton</item>
     </style>
 </resources>

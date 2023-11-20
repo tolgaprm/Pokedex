@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Pokédex</string>
     <string name="search">Search</string>
-    <string name="filter_button">Filter Button</string>
+    <string name="sort_button">Sort Button</string>
     <string name="error_message">Something went wrong!</string>
     <string name="try_again">Try Again!</string>
     <string name="no_found_pokemon">Not Found Pokemon!</string>
+    <string name="sort_by">Sort by:</string>
+    <string name="number">Number</string>
+    <string name="name">Name</string>
 </resources>

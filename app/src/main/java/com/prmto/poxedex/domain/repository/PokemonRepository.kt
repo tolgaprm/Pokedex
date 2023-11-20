@@ -9,11 +9,7 @@ interface PokemonRepository {
         page: Int,
     ): NetworkResponse<List<SinglePokemon>>
 
-    suspend fun searchPokemonsByName(
-        name: String
-    ): NetworkResponse<PokemonDetail>
-
-    suspend fun searchPokemonsById(
-        id: Int
+    suspend fun searchPokemons(
+        query: String
     ): NetworkResponse<PokemonDetail>
 }

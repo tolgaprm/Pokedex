@@ -25,8 +25,8 @@ fun formatNumber(view: TextView, number: Int) {
 @BindingAdapter("sortType")
 fun sortType(imageButton: ImageButton, sortType: SortType) {
     val iconResId = when (sortType) {
-        SortType.NAME -> R.drawable.tag
-        SortType.NUMBER -> R.drawable.text_format
+        SortType.NAME -> R.drawable.text_format
+        SortType.NUMBER -> R.drawable.tag
     }
     imageButton.setImageResource(iconResId)
 }

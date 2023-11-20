@@ -22,11 +22,7 @@ class PokemonRemoteDataSourceImpl @Inject constructor(
         }
     }
 
-    override suspend fun searchPokemonsByName(name: String): NetworkResponse<PokemonDetailDto> {
-        return safeApiCallReturnNetworkResponse { pokeApi.searchPokemonsByName(name) }
-    }
-
-    override suspend fun searchPokemonsById(id: Int): NetworkResponse<PokemonDetailDto> {
-        return safeApiCallReturnNetworkResponse { pokeApi.searchPokemonsById(id) }
+    override suspend fun searchPokemons(query: String): NetworkResponse<PokemonDetailDto> {
+        return safeApiCallReturnNetworkResponse { pokeApi.searchPokemons(query = query) }
     }
 }

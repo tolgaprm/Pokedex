@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.prmto.poxedex.presentation.pokedex_list.SortType" />
+
+        <variable
+            name="viewModel"
+            type="com.prmto.poxedex.presentation.pokedex_list.PokedexListViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_color_primary_with_radius_12"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/four_level_margin"
+            android:layout_marginStart="@dimen/five_level_margin"
+            android:text="@string/sort_by"
+            android:textAppearance="@style/TextAppearance.Poxedex.Subtitle2"
+            android:textColor="?attr/colorOnPrimary" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/one_level_margin"
+            android:layout_marginBottom="@dimen/one_level_margin"
+            android:background="@drawable/bg_color_white_with_radius_8"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioButtonNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/five_level_margin"
+                android:checked="@{viewModel.uiState.sortType ==SortType.NUMBER}"
+                android:onCheckedChanged="@{(button,isChecked)->viewModel.setSortType(isChecked ? SortType.NUMBER : SortType.NAME)}"
+                android:text="@string/number"
+                android:textAppearance="@style/TextAppearance.Poxedex.Body3"
+                android:textColor="@color/dark_gray_scale" />
+
+            <RadioButton
+                android:id="@+id/radioButtonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/five_level_margin"
+                android:checked="@{viewModel.uiState.sortType ==SortType.NAME}"
+                android:text="@string/name"
+                android:textAppearance="@style/TextAppearance.Poxedex.Body3"
+                android:textColor="@color/dark_gray_scale" />
+        </RadioGroup>
+    </LinearLayout>
+</layout>

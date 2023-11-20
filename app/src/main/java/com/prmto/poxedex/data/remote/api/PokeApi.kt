@@ -15,13 +15,8 @@ interface PokeApi {
         @Query("offset") offset: Int
     ): Response<AllPokemonResponse>
 
-    @GET("${PokeApiPaths.POKEMON}/{pokemon_name}")
-    suspend fun searchPokemonsByName(
-        @Path("pokemon_name") name: String
-    ): Response<PokemonDetailDto>
-
-    @GET("${PokeApiPaths.POKEMON}/{pokemon_id}")
-    suspend fun searchPokemonsById(
-        @Path("pokemon_id") id: Int
+    @GET("${PokeApiPaths.POKEMON}/{pokemon_name_or_id}")
+    suspend fun searchPokemons(
+        @Path("pokemon_name_or_id") query: String
     ): Response<PokemonDetailDto>
 }

@@ -1,6 +1,4 @@
-package com.prmto.poxedex.data
-
-import com.prmto.poxedex.common.NetworkResponse
+package com.prmto.poxedex.common
 
 fun <I : Any, O : Any> NetworkResponse<I>.mapResponse(mapper: (I) -> O): NetworkResponse<O> {
     return when (this) {

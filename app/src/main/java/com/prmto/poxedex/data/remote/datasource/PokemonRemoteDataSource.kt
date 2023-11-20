@@ -9,11 +9,7 @@ interface PokemonRemoteDataSource {
         page: Int,
     ): NetworkResponse<AllPokemonResponse>
 
-    suspend fun searchPokemonsByName(
-        name: String
-    ): NetworkResponse<PokemonDetailDto>
-
-    suspend fun searchPokemonsById(
-        id: Int
+    suspend fun searchPokemons(
+        query: String
     ): NetworkResponse<PokemonDetailDto>
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.Pokedex.RadioButton" parent="Widget.Material3.CompoundButton.RadioButton">
+        <item name="useMaterialThemeColors">false</item>
+        <item name="buttonTint">?colorPrimary</item>
+    </style>
+</resources>

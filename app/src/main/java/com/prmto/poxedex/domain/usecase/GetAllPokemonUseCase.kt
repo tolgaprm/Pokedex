@@ -1,6 +1,6 @@
 package com.prmto.poxedex.domain.usecase
 
-import com.prmto.poxedex.data.mapResponse
+import com.prmto.poxedex.common.mapResponse
 import com.prmto.poxedex.domain.repository.PokemonRepository
 import javax.inject.Inject
 

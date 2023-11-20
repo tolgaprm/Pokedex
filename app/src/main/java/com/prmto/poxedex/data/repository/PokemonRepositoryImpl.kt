@@ -1,7 +1,7 @@
 package com.prmto.poxedex.data.repository
 
 import com.prmto.poxedex.common.NetworkResponse
-import com.prmto.poxedex.data.mapResponse
+import com.prmto.poxedex.common.mapResponse
 import com.prmto.poxedex.data.mapper.toPokemonDetail
 import com.prmto.poxedex.data.remote.datasource.PokemonRemoteDataSource
 import com.prmto.poxedex.domain.model.PokemonDetail
@@ -20,13 +20,8 @@ class PokemonRepositoryImpl @Inject constructor(
         ).mapResponse { it.results }
     }
 
-    override suspend fun searchPokemonsByName(name: String): NetworkResponse<PokemonDetail> {
-        return pokemonRemoteDataSource.searchPokemonsByName(name)
-            .mapResponse { it.toPokemonDetail() }
-    }
-
-    override suspend fun searchPokemonsById(id: Int): NetworkResponse<PokemonDetail> {
-        return pokemonRemoteDataSource.searchPokemonsById(id)
+    override suspend fun searchPokemons(query: String): NetworkResponse<PokemonDetail> {
+        return pokemonRemoteDataSource.searchPokemons(query = query)
             .mapResponse { it.toPokemonDetail() }
     }
 }
