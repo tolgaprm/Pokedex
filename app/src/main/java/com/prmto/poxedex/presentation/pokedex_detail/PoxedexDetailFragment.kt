@@ -1,16 +1,16 @@
-package com.prmto.poxedex.presentation.poxedex_list
+package com.prmto.poxedex.presentation.pokedex_detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.prmto.poxedex.databinding.FragmentPoxedexListBinding
+import com.prmto.poxedex.databinding.FragmentPoxedexDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PoxedexListFragment : Fragment() {
-    private var _binding: FragmentPoxedexListBinding? = null
+class PoxedexDetailFragment : Fragment() {
+    private var _binding: FragmentPoxedexDetailBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -18,12 +18,8 @@ class PoxedexListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPoxedexListBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentPoxedexDetailBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {
