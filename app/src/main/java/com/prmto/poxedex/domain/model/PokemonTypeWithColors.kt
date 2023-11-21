@@ -1,4 +1,4 @@
-package com.prmto.poxedex.presentation.util
+package com.prmto.poxedex.domain.model
 
 import androidx.annotation.ColorRes
 import com.prmto.poxedex.R

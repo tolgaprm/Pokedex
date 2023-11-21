@@ -1,7 +1,5 @@
 package com.prmto.poxedex.domain.model
 
-import com.prmto.poxedex.presentation.util.PokemonTypeWithColors
-
 data class PokemonDetail(
     val id: Int,
     val name: String,
