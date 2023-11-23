@@ -198,7 +198,7 @@
                         android:id="@+id/typeChipGroup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/four_level_margin"
+                        android:layout_marginTop="@dimen/six_level_margin"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -342,12 +342,9 @@
                         tools:specialAttackValue="65"
                         tools:specialDefenseValue="65"
                         tools:speedValue="45" />
-
                     <!--endregion BaseStats Section-->
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </FrameLayout>
-
 </layout>

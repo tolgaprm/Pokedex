@@ -28,16 +28,16 @@ class FeatureStatsWidget @JvmOverloads constructor(
         )
         val styledAttributes = context.obtainStyledAttributes(attrs, R.styleable.FeatureStatsWidget)
 
-        styledAttributes.use {
-            with(it) {
-                setAllTitles()
-                setAllValues()
-                setProgressTint(
-                    R.styleable.FeatureStatsWidget_progressTint,
-                    binding.stateHp.progressBar
-                )
-            }
+        styledAttributes.apply {
+            setAllTitles()
+            setAllValues()
+            setProgressTint(
+                R.styleable.FeatureStatsWidget_progressTint,
+                binding.stateHp.progressBar
+            )
         }
+
+        styledAttributes.recycle()
     }
 
     private fun TypedArray.setProgressTint(
@@ -95,6 +95,17 @@ class FeatureStatsWidget @JvmOverloads constructor(
         }
     }
 
+    fun setAllTitleColors(color: Int) {
+        binding.apply {
+            stateHp.tvStateItemTitle.setTextColor(color)
+            stateAttack.tvStateItemTitle.setTextColor(color)
+            stateDefense.tvStateItemTitle.setTextColor(color)
+            stateSpecialAttack.tvStateItemTitle.setTextColor(color)
+            stateSpecialDefense.tvStateItemTitle.setTextColor(color)
+            stateSpeed.tvStateItemTitle.setTextColor(color)
+        }
+    }
+
     private fun setItemFormattedValue(value: Int, textView: TextView) {
         textView.text = String.format("%03d", value)
     }
@@ -135,10 +146,10 @@ class FeatureStatsWidget @JvmOverloads constructor(
         value: Int
     ) {
         progressBar.progress = value
-        val animationDuration = 3000
+        val animationDuration = 3000L
 
         val progressAnimator = ObjectAnimator.ofInt(progressBar, "progress", 0, value)
-        progressAnimator.duration = animationDuration.toLong()
+        progressAnimator.duration = animationDuration
         progressAnimator.start()
     }
 }

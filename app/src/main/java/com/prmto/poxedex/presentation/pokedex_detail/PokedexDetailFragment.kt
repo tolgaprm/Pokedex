@@ -21,6 +21,7 @@ class PokedexDetailFragment : Fragment() {
     private var _binding: FragmentPoxedexDetailBinding? = null
     private val binding get() = _binding!!
 
+    private var pokemonChipTypeCreator: PokemonChipTypeCreator? = null
     private val viewModel: PokedexDetailViewModel by viewModels()
 
     override fun onCreateView(
@@ -34,6 +35,7 @@ class PokedexDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pokemonChipTypeCreator = PokemonChipTypeCreator(context = requireContext())
         binding.viewModel = this.viewModel
         setupClickListeners()
         collectUiState()
@@ -61,8 +63,14 @@ class PokedexDetailFragment : Fragment() {
                 viewModel.uiState.collectLatest { uiState ->
                     binding.errorMessage = uiState.errorMessageResId?.let { getString(it) }
                     binding.pokedexDetailUiState = uiState
-                    uiState.pokemonDetail?.let {
-                        setStatusBarAndPokemonColors(it.pokemonColorRes)
+                    uiState.pokemonDetail?.let { pokemonDetail ->
+                        setStatusBarAndPokemonColors(pokemonDetail.pokemonColorRes)
+                        if (pokemonDetail.pokemonTypeWithColors.isNotEmpty()) {
+                            pokemonChipTypeCreator?.createPokemonChips(
+                                chipGroup = binding.typeChipGroup,
+                                pokemonTypeWithColors = pokemonDetail.pokemonTypeWithColors
+                            )
+                        }
                     }
                 }
             }
@@ -76,6 +84,7 @@ class PokedexDetailFragment : Fragment() {
         )
 
         binding.featureStatsWidget.setAllProgressTints(colorResId)
+        binding.featureStatsWidget.setAllTitleColors(colorResId)
         binding.flPokedexDetail.setBackgroundColor(colorResId)
         binding.tvAboutTitle.setTextColor(colorResId)
         binding.tvBaseStatsTitle.setTextColor(colorResId)
@@ -88,6 +97,7 @@ class PokedexDetailFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        pokemonChipTypeCreator = null
         _binding = null
     }
 }
