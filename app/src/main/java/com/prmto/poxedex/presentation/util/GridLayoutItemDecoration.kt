@@ -21,7 +21,6 @@ class GridLayoutItemDecoration(
 
         val resources = view.context.resources
 
-
         val twoLevelMargin = resources.getDimension(R.dimen.two_level_margin).toInt()
         val sixLevelMargin = resources.getDimension(R.dimen.six_level_margin).toInt()
         val threeLevelMargin = resources.getDimension(R.dimen.three_level_margin).toInt()
@@ -31,7 +30,12 @@ class GridLayoutItemDecoration(
         val marginRight = if (itemPosition % spanCount == spanCount - 1) threeLevelMargin else 0
 
         val marginLayoutParams = view.layoutParams as MarginLayoutParams
-        marginLayoutParams.setMargins(marginLeft, marginTop, marginRight, sixLevelMargin)
+        marginLayoutParams.setMargins(
+            /* left = */ marginLeft,
+            /* top = */ marginTop,
+            /* right = */ marginRight,
+            /* bottom = */ 0
+        )
         view.layoutParams = marginLayoutParams
     }
 }
