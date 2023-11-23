@@ -50,16 +50,16 @@
                     android:layout_height="@dimen/icon_size"
                     android:importantForAccessibility="no"
                     android:src="@drawable/pokeball"
-                    app:layout_constraintBottom_toBottomOf="@+id/txtPokedexTitle"
-                    app:layout_constraintEnd_toStartOf="@+id/txtPokedexTitle"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvPokedexTitle"
+                    app:layout_constraintEnd_toStartOf="@+id/tvPokedexTitle"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/txtPokedexTitle"
+                    app:layout_constraintTop_toTopOf="@+id/tvPokedexTitle"
                     app:tint="@color/white" />
 
                 <TextView
-                    android:id="@+id/txtPokedexTitle"
+                    android:id="@+id/tvPokedexTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/four_level_margin"
@@ -91,7 +91,7 @@
                     android:textColorHint="@color/medium"
                     app:layout_constraintEnd_toStartOf="@+id/imbSort"
                     app:layout_constraintStart_toStartOf="@+id/imvPokeball"
-                    app:layout_constraintTop_toBottomOf="@+id/txtPokedexTitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvPokedexTitle" />
 
                 <ImageButton
                     android:id="@+id/imbSort"
@@ -100,13 +100,13 @@
                     android:background="@drawable/bg_color_white_with_circle"
                     android:contentDescription="@string/sort_button"
                     android:padding="@dimen/two_level_margin"
+                    android:src="@drawable/tag"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/edtSearch"
                     app:layout_constraintTop_toTopOf="@+id/edtSearch"
                     app:sortType="@{pokedexListUiState.sortType}"
-                    android:src="@drawable/tag"
                     app:tint="?attr/colorPrimary"
                     tools:ignore="TouchTargetSizeCheck" />
 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imvAttributeIcon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:importantForAccessibility="no"
+                app:tint="@color/dark_gray_scale"
+                tools:src="@drawable/weight" />
+
+            <TextView
+                android:id="@+id/tvAttributeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/two_level_margin"
+                android:textAppearance="@style/TextAppearance.Poxedex.Body3"
+                android:textColor="@color/dark_gray_scale"
+                tools:text="6,9kg" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAttributeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/two_level_margin"
+            android:text="@string/weight"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.Poxedex.Caption"
+            android:textColor="@color/medium"
+            app:layout_constraintEnd_toEndOf="@+id/tvAttributeValue"
+            app:layout_constraintStart_toStartOf="@+id/imvAttributeIcon"
+            app:layout_constraintTop_toBottomOf="@+id/tvAttributeValue" />
+    </LinearLayout>
+</layout>

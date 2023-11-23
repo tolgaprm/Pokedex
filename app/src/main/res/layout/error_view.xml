@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -10,8 +11,7 @@
             type="String" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_color_white_with_radius_16"
@@ -25,9 +25,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/two_level_margin"
             android:text="@{errorMessage}"
-            android:textColor="@color/dark_gray_scale"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.Poxedex.Headline"
+            android:textColor="@color/dark_gray_scale"
             tools:text="Error Message" />
 
         <Button

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AttributeItemView">
+        <attr name="attributeIcon" format="reference|color" />
+        <attr name="attributeIconRotate" format="float" />
+        <attr name="attributeValue" format="string" />
+        <attr name="attributeValues" format="string" />
+        <attr name="attributeTitle" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="FeatureStatsWidget">
+        <attr name="hpTitle" format="string" />
+        <attr name="hpValue" format="integer" />
+        <attr name="attackTitle" format="string" />
+        <attr name="attackValue" format="integer" />
+        <attr name="defenseTitle" format="string" />
+        <attr name="defenseValue" format="integer" />
+        <attr name="specialAttackTitle" format="string" />
+        <attr name="specialAttackValue" format="integer" />
+        <attr name="specialDefenseTitle" format="string" />
+        <attr name="specialDefenseValue" format="integer" />
+        <attr name="speedTitle" format="string" />
+        <attr name="speedValue" format="string" />
+        <attr name="progressTint" format="reference" />
+    </declare-styleable>
+</resources>

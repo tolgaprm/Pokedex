@@ -8,4 +8,18 @@
     <string name="sort_by">Sort by:</string>
     <string name="number">Number</string>
     <string name="name">Name</string>
+    <string name="navigate_up">Navigate up</string>
+    <string name="previous_pokemon">Previous Pokemon</string>
+    <string name="next_pokemon">Next Pokemon</string>
+    <string name="about">About</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="moves">Moves</string>
+    <string name="base_stats">Base Stats</string>
+    <string name="hp">HP</string>
+    <string name="attack">ATK</string>
+    <string name="defense">DEF</string>
+    <string name="special_attack">SATK</string>
+    <string name="special_defense">SDEF</string>
+    <string name="speed">SPD</string>
 </resources>

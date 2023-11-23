@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,9 +10,7 @@
             type="com.prmto.poxedex.domain.model.SinglePokemon" />
     </data>
 
-    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtPokeNumber"
+                android:id="@+id/tvPokeNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -38,11 +38,12 @@
                 android:layout_width="@dimen/poke_item_image_size"
                 android:layout_height="@dimen/poke_item_image_size"
                 android:layout_gravity="center"
+                android:contentDescription="@{pokemon.name}"
                 app:loadImage="@{pokemon.imageUrl}"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/txtPokeName"
+                android:id="@+id/tvPokeName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"

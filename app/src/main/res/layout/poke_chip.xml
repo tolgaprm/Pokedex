@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="20dp"
+    android:background="@drawable/chip_style"
+    android:backgroundTint="@color/grass"
+    android:paddingHorizontal="@dimen/two_level_margin"
+    android:paddingVertical="2dp"
+    android:textAlignment="center"
+    android:textAppearance="@style/TextAppearance.Poxedex.Subtitle3"
+    android:textColor="@color/white"
+    tools:text="Grass" />
