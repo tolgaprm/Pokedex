@@ -39,7 +39,8 @@ class PokedexDetailViewModel @Inject constructor(
         savedStateHandle.get<String>(NavArgs.POKEMON_ID)?.let { pokemonId ->
             _uiState.update {
                 it.copy(
-                    isChevronBackButtonVisible = pokemonId != "1"
+                    isChevronBackButtonVisible = pokemonId != "1",
+                    currentPokemonId = pokemonId.toInt()
                 )
             }
             getPokemonDetail(pokemonId = pokemonId)
@@ -72,5 +73,32 @@ class PokedexDetailViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun retry() {
+        _uiState.update { it.copy(errorMessageResId = null) }
+        getPokemonDetail(pokemonId = uiState.value.currentPokemonId.toString())
+    }
+
+    private fun updatePokemonDetails(newPokemonId: Int) {
+        _uiState.update {
+            it.copy(
+                currentPokemonId = newPokemonId,
+                isChevronBackButtonVisible = newPokemonId != 1
+            )
+        }
+        getPokemonDetail(pokemonId = newPokemonId.toString())
+    }
+
+    fun onPreviousPokemonClick() {
+        val previousPokemonId = uiState.value.currentPokemonId - 1
+        if (previousPokemonId >= 1) {
+            updatePokemonDetails(previousPokemonId)
+        }
+    }
+
+    fun onNextPokemonClick() {
+        val nextPokemonId = uiState.value.currentPokemonId + 1
+        updatePokemonDetails(nextPokemonId)
     }
 }

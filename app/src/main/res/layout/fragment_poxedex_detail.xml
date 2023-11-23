@@ -17,6 +17,10 @@
         <variable
             name="errorMessage"
             type="String" />
+
+        <variable
+            name="viewModel"
+            type="com.prmto.poxedex.presentation.pokedex_detail.PokedexDetailViewModel" />
     </data>
 
     <FrameLayout
@@ -145,11 +149,12 @@
                 tools:src="@tools:sample/avatars" />
 
             <ImageButton
-                android:id="@+id/imbChevronLeft"
+                android:id="@+id/imbPreviousPokemon"
                 android:layout_width="@dimen/icon_size"
                 android:layout_height="@dimen/icon_size"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/previous_pokemon"
+                android:onClick="@{() -> viewModel.onPreviousPokemonClick()}"
                 android:src="@drawable/chevron_left"
                 android:visibility="@{pokedexDetailUiState.isChevronBackButtonVisible ? View.VISIBLE : View.INVISIBLE}"
                 app:layout_constraintBottom_toBottomOf="@+id/imvPokemon"
@@ -159,10 +164,11 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <ImageButton
-                android:id="@+id/imbChevronRight"
+                android:id="@+id/imbNextPokemon"
                 android:layout_width="@dimen/icon_size"
                 android:layout_height="@dimen/icon_size"
                 android:background="@android:color/transparent"
+                android:onClick="@{() -> viewModel.onNextPokemonClick()}"
                 android:contentDescription="@string/next_pokemon"
                 android:src="@drawable/chevron_right"
                 app:layout_constraintBottom_toBottomOf="@+id/imvPokemon"

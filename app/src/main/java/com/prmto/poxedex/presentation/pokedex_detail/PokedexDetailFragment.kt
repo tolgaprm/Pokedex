@@ -16,7 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-
 @AndroidEntryPoint
 class PokedexDetailFragment : Fragment() {
     private var _binding: FragmentPoxedexDetailBinding? = null
@@ -35,7 +34,7 @@ class PokedexDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.viewModel = this.viewModel
         setupClickListeners()
         collectUiState()
     }
@@ -49,6 +48,10 @@ class PokedexDetailFragment : Fragment() {
                 )
             )
             findNavController().navigateUp()
+        }
+
+        binding.includeErrorView.btnErrorTryAgain.setOnClickListener {
+            viewModel.retry()
         }
     }
 

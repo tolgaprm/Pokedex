@@ -8,5 +8,5 @@ data class PokedexDetailUiState(
     val pokemonDetail: PokemonDetail? = null,
     @StringRes val errorMessageResId: Int? = null,
     val isChevronBackButtonVisible: Boolean = false,
-    val pokemonId: String = ""
+    val currentPokemonId: Int = 0
 )
