@@ -1,281 +1,347 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.prmto.poxedex.domain.model.StatType" />
+
+        <variable
+            name="pokedexDetailUiState"
+            type="com.prmto.poxedex.presentation.pokedex_detail.PokedexDetailUiState" />
+
+        <variable
+            name="errorMessage"
+            type="String" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/flPokedexDetail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:background="@color/grass"
-        tools:context=".presentation.pokedex_detail.PoxedexDetailFragment">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineStart"
+        <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/five_level_margin" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/five_level_margin" />
-
-        <!--region Title Section -->
-        <ImageView
-            android:id="@+id/imvPokeBall"
-            android:layout_width="208dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/two_level_margin"
-            android:layout_marginEnd="@dimen/two_level_margin"
-            android:alpha="0.1"
-            android:importantForAccessibility="no"
-            android:src="@drawable/pokeball"
-            app:layout_constraintBottom_toBottomOf="@+id/imvPokemon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Set background color with the the color of ConstraintLayout-->
-        <ImageButton
-            android:id="@+id/imbNavigateUp"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="@dimen/five_level_margin"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/navigate_up"
-            android:scaleType="fitCenter"
-            android:src="@drawable/arrow_back"
-            app:layout_constraintEnd_toStartOf="@+id/txtPokedexName"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <TextView
-            android:id="@+id/txtPokedexName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/two_level_margin"
-            android:textAppearance="@style/TextAppearance.Poxedex.Headline"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/imbNavigateUp"
-            app:layout_constraintEnd_toStartOf="@+id/imvPokeBall"
-            app:layout_constraintStart_toEndOf="@+id/imbNavigateUp"
-            app:layout_constraintTop_toTopOf="@+id/imbNavigateUp"
-            tools:text="Bulbasaur" />
-
-        <TextView
-            android:id="@+id/txtPokedexId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.Poxedex.Subtitle2"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/txtPokedexName"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-            app:layout_constraintTop_toTopOf="@+id/txtPokedexName"
-            tools:text="#001" />
-        <!--endregion Title Section -->
-
-        <!--region Image Section -->
-        <!-- TODO Add Content Description as name-->
-        <ImageView
-            android:id="@+id/imvPokemon"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="@dimen/six_level_margin"
-            android:contentDescription=""
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtPokedexName"
-            tools:src="@tools:sample/avatars" />
-
-        <ImageButton
-            android:id="@+id/imbChevronLeft"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/previous_pokemon"
-            android:src="@drawable/chevron_left"
-            app:layout_constraintBottom_toBottomOf="@+id/imvPokemon"
-            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
-            app:layout_constraintTop_toTopOf="@+id/imvPokemon"
-            app:tint="@color/white"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <ImageButton
-            android:id="@+id/imbChevronRight"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/next_pokemon"
-            android:src="@drawable/chevron_right"
-            app:layout_constraintBottom_toBottomOf="@+id/imvPokemon"
-            app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
-            app:layout_constraintTop_toTopOf="@+id/imvPokemon"
-            app:tint="@color/white"
-            tools:ignore="TouchTargetSizeCheck" />
-        <!--endregion Image Section-->
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/one_level_margin"
-            android:layout_marginBottom="@dimen/one_level_margin"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="8dp"
+            android:layout_gravity="center"
+            android:elevation="5dp"
+            android:indeterminateTint="?attr/colorPrimary"
+            android:visibility="@{pokedexDetailUiState.isLoading ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imvPokemon">
+            app:layout_constraintTop_toBottomOf="@+id/imvPokemon"
+            tools:visibility="visible" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <include
+            android:id="@+id/includeErrorView"
+            layout="@layout/error_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/one_level_margin"
+            android:layout_marginBottom="@dimen/one_level_margin"
+            android:visibility="@{pokedexDetailUiState.errorMessageResId != null ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:errorMessage="@{errorMessage}"
+            tools:visibility="visible" />
 
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/typeChipGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/four_level_margin"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clPokedexDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{pokedexDetailUiState.isLoading || pokedexDetailUiState.errorMessageResId != null ? View.GONE : View.VISIBLE}"
+            tools:background="@color/grass"
+            tools:context=".presentation.pokedex_detail.PokedexDetailFragment">
 
-                </com.google.android.material.chip.ChipGroup>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/five_level_margin" />
 
-                <!-- region About and Attributes Section -->
-                <TextView
-                    android:id="@+id/tvAboutTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/four_level_margin"
-                    android:text="@string/about"
-                    android:textAppearance="@style/TextAppearance.Poxedex.Subtitle1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/typeChipGroup"
-                    tools:textColor="@color/grass" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/five_level_margin" />
 
-                <com.prmto.poxedex.uiComponents.AttributeItemView
-                    android:id="@+id/attributeWeight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="@dimen/five_level_margin"
-                    app:attributeIcon="@drawable/weight"
-                    app:attributeTitle="@string/weight"
-                    app:layout_constraintBottom_toBottomOf="@+id/attributeHeight"
-                    app:layout_constraintEnd_toStartOf="@+id/divider"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/attributeHeight"
-                    tools:attributeValue="9,6kg" />
+            <!--region Title Section -->
+            <ImageView
+                android:id="@+id/imvPokeBall"
+                android:layout_width="208dp"
+                android:layout_height="208dp"
+                android:layout_marginTop="@dimen/two_level_margin"
+                android:layout_marginEnd="@dimen/two_level_margin"
+                android:alpha="0.1"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pokeball"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="1dp"
-                    android:layout_height="0dp"
-                    android:background="?android:attr/listDivider"
-                    app:layout_constraintBottom_toBottomOf="@+id/attributeWeight"
-                    app:layout_constraintEnd_toStartOf="@+id/attributeHeight"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/attributeWeight"
-                    app:layout_constraintTop_toTopOf="@+id/attributeWeight" />
+            <!-- Set background color with the the color of ConstraintLayout-->
+            <ImageButton
+                android:id="@+id/imbNavigateUp"
+                android:layout_width="@dimen/poke_detail_navigate_up_size"
+                android:layout_height="@dimen/poke_detail_navigate_up_size"
+                android:layout_marginTop="@dimen/five_level_margin"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/navigate_up"
+                android:scaleType="fitCenter"
+                android:src="@drawable/arrow_back"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white"
+                tools:ignore="TouchTargetSizeCheck" />
 
-                <com.prmto.poxedex.uiComponents.AttributeItemView
-                    android:id="@+id/attributeHeight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    app:attributeIcon="@drawable/straighten"
-                    app:attributeIconRotate="90"
-                    app:attributeTitle="@string/height"
-                    app:layout_constraintBottom_toBottomOf="@+id/attributeMovies"
-                    app:layout_constraintEnd_toStartOf="@+id/divider2"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/divider"
-                    app:layout_constraintTop_toTopOf="@+id/attributeMovies"
-                    tools:attributeValue="0.7 m" />
+            <TextView
+                android:id="@+id/txtPokedexName"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/poke_detail_navigate_up_size"
+                android:layout_marginStart="@dimen/one_level_margin"
+                android:text="@{pokedexDetailUiState.pokemonDetail.name}"
+                android:textAppearance="@style/TextAppearance.Poxedex.Headline"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/imbNavigateUp"
+                app:layout_constraintStart_toEndOf="@+id/imbNavigateUp"
+                app:layout_constraintTop_toTopOf="@+id/imbNavigateUp"
+                tools:text="Bulbasaur" />
 
-                <View
-                    android:id="@+id/divider2"
-                    android:layout_width="1dp"
-                    android:layout_height="0dp"
-                    android:background="?android:attr/listDivider"
-                    app:layout_constraintBottom_toBottomOf="@+id/attributeHeight"
-                    app:layout_constraintEnd_toStartOf="@+id/attributeMovies"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/attributeHeight"
-                    app:layout_constraintTop_toTopOf="@+id/attributeHeight" />
+            <TextView
+                android:id="@+id/txtPokedexId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Poxedex.Subtitle2"
+                android:textColor="@color/white"
+                app:formatNumber="@{pokedexDetailUiState.pokemonDetail.id}"
+                app:layout_constraintBottom_toBottomOf="@+id/txtPokedexName"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintTop_toTopOf="@+id/txtPokedexName"
+                tools:text="#001" />
+            <!--endregion Title Section -->
 
-                <com.prmto.poxedex.uiComponents.AttributeItemView
-                    android:id="@+id/attributeMovies"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/four_level_margin"
-                    android:layout_marginEnd="@dimen/five_level_margin"
-                    android:icon="@drawable/weight"
-                    app:attributeTitle="@string/moves"
-                    app:attributeValues="Chlorophyll Overgrow"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/divider2"
-                    app:layout_constraintTop_toBottomOf="@+id/tvAboutTitle" />
+            <!--region Image Section -->
+            <ImageView
+                android:id="@+id/imvPokemon"
+                android:layout_width="@dimen/poke_detail_image_size"
+                android:layout_height="@dimen/poke_detail_image_size"
+                android:layout_marginTop="@dimen/six_level_margin"
+                android:contentDescription="@{pokedexDetailUiState.pokemonDetail.name}"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPokedexName"
+                app:loadImage="@{pokedexDetailUiState.pokemonDetail.imageUrl}"
+                tools:src="@tools:sample/avatars" />
 
-                <TextView
-                    android:id="@+id/tvFlavorText"
+            <ImageButton
+                android:id="@+id/imbChevronLeft"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/previous_pokemon"
+                android:src="@drawable/chevron_left"
+                android:visibility="@{pokedexDetailUiState.isChevronBackButtonVisible ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@+id/imvPokemon"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toTopOf="@+id/imvPokemon"
+                app:tint="@color/white"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageButton
+                android:id="@+id/imbChevronRight"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/next_pokemon"
+                android:src="@drawable/chevron_right"
+                app:layout_constraintBottom_toBottomOf="@+id/imvPokemon"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintTop_toTopOf="@+id/imvPokemon"
+                app:tint="@color/white"
+                tools:ignore="TouchTargetSizeCheck" />
+            <!--endregion Image Section-->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/one_level_margin"
+                android:layout_marginBottom="@dimen/one_level_margin"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/small_shape"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imvPokemon">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/five_level_margin"
-                    android:layout_marginTop="@dimen/six_level_margin"
-                    android:textAppearance="@style/TextAppearance.Poxedex.Body3"
-                    android:textColor="@color/dark_gray_scale"
-                    app:layout_constraintTop_toBottomOf="@+id/attributeHeight"
-                    tools:text="There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger." />
-                <!-- endregion Attributes Section -->
+                    android:layout_height="match_parent">
 
-                <!--region BaseStats Section-->
-                <TextView
-                    android:id="@+id/tvBaseStatsTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/six_level_margin"
-                    android:text="@string/base_stats"
-                    android:textAppearance="@style/TextAppearance.Poxedex.Subtitle1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvFlavorText"
-                    tools:textColor="@color/grass" />
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/typeChipGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/four_level_margin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                <!--TODO change progressTint with the pokemon color-->
-                <com.prmto.poxedex.uiComponents.FeatureStatsWidget
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="@dimen/six_level_margin"
-                    app:attackTitle="@string/attack"
-                    app:defenseTitle="@string/defense"
-                    app:hpTitle="@string/hp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/tvFlavorText"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/tvFlavorText"
-                    app:layout_constraintTop_toBottomOf="@id/tvBaseStatsTitle"
-                    app:progressTint="@color/grass"
-                    app:specialAttackTitle="@string/special_attack"
-                    app:specialDefenseTitle="@string/special_defense"
-                    app:speedTitle="@string/speed"
-                    tools:attackValue="49"
-                    tools:defenseValue="49"
-                    tools:hpValue="45"
-                    tools:specialAttackValue="65"
-                    tools:specialDefenseValue="65"
-                    tools:speedValue="45" />
+                    </com.google.android.material.chip.ChipGroup>
 
-                <!--endregion BaseStats Section-->
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!-- region About and Attributes Section -->
+                    <TextView
+                        android:id="@+id/tvAboutTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/four_level_margin"
+                        android:text="@string/about"
+                        android:textAppearance="@style/TextAppearance.Poxedex.Subtitle1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/typeChipGroup"
+                        tools:textColor="@color/grass" />
+
+                    <com.prmto.poxedex.uiComponents.attributeItem.AttributeItemView
+                        android:id="@+id/attributeWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/five_level_margin"
+                        app:attributeIcon="@drawable/weight"
+                        app:attributeTitle="@string/weight"
+                        app:attributeValue="@{@string/weight_unit(pokedexDetailUiState.pokemonDetail.weight)}"
+                        app:layout_constraintBottom_toBottomOf="@+id/attributeHeight"
+                        app:layout_constraintEnd_toStartOf="@+id/divider"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/attributeHeight"
+                        tools:attributeValue="9,6kg" />
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintBottom_toBottomOf="@+id/attributeWeight"
+                        app:layout_constraintEnd_toStartOf="@+id/attributeHeight"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/attributeWeight"
+                        app:layout_constraintTop_toTopOf="@+id/attributeWeight" />
+
+                    <com.prmto.poxedex.uiComponents.attributeItem.AttributeItemView
+                        android:id="@+id/attributeHeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        app:attributeIcon="@drawable/straighten"
+                        app:attributeIconRotate="90"
+                        app:attributeTitle="@string/height"
+                        app:attributeValue="@{@string/height_unit(pokedexDetailUiState.pokemonDetail.height)}"
+                        app:layout_constraintBottom_toBottomOf="@+id/attributeMovies"
+                        app:layout_constraintEnd_toStartOf="@+id/divider2"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/divider"
+                        app:layout_constraintTop_toTopOf="@+id/attributeMovies"
+                        tools:attributeValue="0.7 m" />
+
+                    <View
+                        android:id="@+id/divider2"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintBottom_toBottomOf="@+id/attributeHeight"
+                        app:layout_constraintEnd_toStartOf="@+id/attributeMovies"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/attributeHeight"
+                        app:layout_constraintTop_toTopOf="@+id/attributeHeight" />
+
+                    <com.prmto.poxedex.uiComponents.attributeItem.AttributeItemView
+                        android:id="@+id/attributeMovies"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/four_level_margin"
+                        android:layout_marginEnd="@dimen/five_level_margin"
+                        android:icon="@drawable/weight"
+                        android:textAlignment="center"
+                        app:attributeMoves="@{pokedexDetailUiState.pokemonDetail.abilitiesWithSeparatedWithComma}"
+                        app:attributeTitle="@string/moves"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/divider2"
+                        app:layout_constraintTop_toBottomOf="@+id/tvAboutTitle"
+                        tools:attributeMoves="Chlorophyll Overgrow" />
+
+                    <TextView
+                        android:id="@+id/tvFlavorText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/five_level_margin"
+                        android:layout_marginTop="@dimen/six_level_margin"
+                        android:text="@{pokedexDetailUiState.pokemonDetail.species.flavorText}"
+                        android:textAppearance="@style/TextAppearance.Poxedex.Body3"
+                        android:textColor="@color/dark_gray_scale"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/attributeHeight"
+                        tools:text="There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger." />
+                    <!-- endregion Attributes Section -->
+
+                    <!--region BaseStats Section-->
+                    <TextView
+                        android:id="@+id/tvBaseStatsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/six_level_margin"
+                        android:text="@string/base_stats"
+                        android:textAppearance="@style/TextAppearance.Poxedex.Subtitle1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvFlavorText"
+                        tools:textColor="@color/grass" />
+
+                    <com.prmto.poxedex.uiComponents.featureStatsWidget.FeatureStatsWidget
+                        android:id="@+id/featureStatsWidget"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="@dimen/six_level_margin"
+                        app:attackTitle="@string/attack"
+                        app:attackValue="@{pokedexDetailUiState.pokemonDetail.stats.get(StatType.ATTACK)}"
+                        app:defenseTitle="@string/defense"
+                        app:defenseValue="@{pokedexDetailUiState.pokemonDetail.stats.get(StatType.DEFENSE)}"
+                        app:hpTitle="@string/hp"
+                        app:hpValue="@{pokedexDetailUiState.pokemonDetail.stats.get(StatType.HP)}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/tvFlavorText"
+                        app:layout_constraintStart_toStartOf="@+id/tvFlavorText"
+                        app:layout_constraintTop_toBottomOf="@id/tvBaseStatsTitle"
+                        app:progressTint="@color/grass"
+                        app:specialAttackTitle="@string/special_attack"
+                        app:specialAttackValue="@{pokedexDetailUiState.pokemonDetail.stats.get(StatType.SPECIAL_ATTACK)}"
+                        app:specialDefenseTitle="@string/special_defense"
+                        app:specialDefenseValue="@{pokedexDetailUiState.pokemonDetail.stats.get(StatType.SPECIAL_DEFENSE)}"
+                        app:speedTitle="@string/speed"
+                        app:speedValue="@{pokedexDetailUiState.pokemonDetail.stats.get(StatType.SPEED)}"
+                        tools:attackValue="49"
+                        tools:defenseValue="49"
+                        tools:hpValue="45"
+                        tools:specialAttackValue="65"
+                        tools:specialDefenseValue="65"
+                        tools:speedValue="45" />
+
+                    <!--endregion BaseStats Section-->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
 </layout>

@@ -22,4 +22,6 @@
     <string name="special_attack">SATK</string>
     <string name="special_defense">SDEF</string>
     <string name="speed">SPD</string>
+    <string name="weight_unit">%s kg</string>
+    <string name="height_unit">%s m</string>
 </resources>
