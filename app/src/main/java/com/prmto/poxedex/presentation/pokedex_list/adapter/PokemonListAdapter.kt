@@ -11,43 +11,44 @@ import com.prmto.poxedex.domain.model.SinglePokemon
 class PokemonListAdapter :
     ListAdapter<SinglePokemon, PokemonListAdapter.PokemonViewHolder>(PokemonDiffer()) {
 
-    class PokemonViewHolder(private val binding: PokeItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    private var onClickPokedex: (String) -> Unit = { }
 
-        companion object {
-            fun create(
-                parent: ViewGroup
-            ): PokemonViewHolder {
-                val binding = PokeItemBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent,
-                    false
-                )
-                return PokemonViewHolder(binding)
-            }
-        }
+    inner class PokemonViewHolder(private val binding: PokeItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
             pokemon: SinglePokemon
         ) {
             binding.pokemon = pokemon
+            binding.root.setOnClickListener {
+                onClickPokedex(pokemon.id.toString())
+            }
             binding.executePendingBindings()
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
-        return PokemonViewHolder.create(parent = parent)
+        val binding = PokeItemBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return PokemonViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val pokemonItem = getItem(position)
         holder.bind(pokemon = pokemonItem)
     }
+
+    fun setOnClickListener(onClickPokedex: (pokedexId: String) -> Unit) {
+        this.onClickPokedex = onClickPokedex
+    }
 }
 
 class PokemonDiffer : DiffUtil.ItemCallback<SinglePokemon>() {
     override fun areItemsTheSame(oldItem: SinglePokemon, newItem: SinglePokemon): Boolean {
-        return oldItem.name == newItem.name
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: SinglePokemon, newItem: SinglePokemon): Boolean {

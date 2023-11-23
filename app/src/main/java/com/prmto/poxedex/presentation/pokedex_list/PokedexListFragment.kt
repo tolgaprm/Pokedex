@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.prmto.poxedex.databinding.FragmentPoxedexListBinding
 import com.prmto.poxedex.presentation.pokedex_list.adapter.PokemonListAdapter
@@ -20,7 +21,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PoxedexListFragment : Fragment() {
+class PokedexListFragment : Fragment() {
     private var _binding: FragmentPoxedexListBinding? = null
     private val binding get() = _binding!!
 
@@ -94,6 +95,14 @@ class PoxedexListFragment : Fragment() {
                 childFragmentManager,
                 SortDialogFragment.TAG
             )
+        }
+
+        pokemonListAdapter.setOnClickListener { pokedexId ->
+            val action =
+                PokedexListFragmentDirections.actionPoxedexListFragmentToPoxedexDetailFragment(
+                    pokedexId = pokedexId
+                )
+            findNavController().navigate(action)
         }
     }
 

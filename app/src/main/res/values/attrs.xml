@@ -4,7 +4,7 @@
         <attr name="attributeIcon" format="reference|color" />
         <attr name="attributeIconRotate" format="float" />
         <attr name="attributeValue" format="string" />
-        <attr name="attributeValues" format="string" />
+        <attr name="attributeMoves" format="string" />
         <attr name="attributeTitle" format="string" />
     </declare-styleable>
 
@@ -21,6 +21,6 @@
         <attr name="specialDefenseValue" format="integer" />
         <attr name="speedTitle" format="string" />
         <attr name="speedValue" format="string" />
-        <attr name="progressTint" format="reference" />
+        <attr name="progressTint" format="reference|color" />
     </declare-styleable>
 </resources>
