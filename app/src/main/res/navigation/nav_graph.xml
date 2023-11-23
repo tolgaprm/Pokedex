@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/poxedexListFragment"
-        android:name="com.prmto.poxedex.presentation.pokedex_list.PoxedexListFragment"
+        android:name="com.prmto.poxedex.presentation.pokedex_list.PokedexListFragment"
         android:label="PoxedexListFragment"
         tools:layout="@layout/fragment_poxedex_list">
         <action
@@ -17,7 +17,11 @@
 
     <fragment
         android:id="@+id/poxedexDetailFragment"
-        android:name="com.prmto.poxedex.presentation.pokedex_detail.PoxedexDetailFragment"
+        android:name="com.prmto.poxedex.presentation.pokedex_detail.PokedexDetailFragment"
         android:label="PoxedexDetailFragment"
-        tools:layout="@layout/fragment_poxedex_detail" />
+        tools:layout="@layout/fragment_poxedex_detail">
+        <argument
+            android:name="pokedexId"
+            app:argType="string" />
+    </fragment>
 </navigation>

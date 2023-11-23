@@ -8,6 +8,11 @@
     <dimen name="five_level_margin">20dp</dimen>
     <dimen name="six_level_margin">24dp</dimen>
 
+    <!--Common shape -->
+    <dimen name="small_shape">8dp</dimen>
+    <dimen name="medium_shape">12dp</dimen>
+    <dimen name="large_shape">16dp</dimen>
+
     <dimen name="icon_size">24dp</dimen>
 
     <!-- Poxedex List-->
@@ -15,4 +20,8 @@
 
     <!-- Poke Item-->
     <dimen name="poke_item_image_size">72dp</dimen>
+
+    <!-- Poke Detail-->
+    <dimen name="poke_detail_image_size">200dp</dimen>
+    <dimen name="poke_detail_navigate_up_size">32dp</dimen>
 </resources>
