@@ -13,7 +13,7 @@ class SearchPokemonUseCase @Inject constructor(
     suspend operator fun invoke(
         query: String
     ): NetworkResponse<SinglePokemon> {
-        val response = repository.searchPokemons(query = query)
+        val response = repository.getPokemonDetail(path = query)
 
         return response.mapResponse { it.toSinglePokemon() }
     }

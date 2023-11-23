@@ -3,6 +3,7 @@ package com.prmto.poxedex.data.remote.datasource
 import com.prmto.poxedex.common.NetworkResponse
 import com.prmto.poxedex.data.dto.AllPokemonResponse
 import com.prmto.poxedex.data.dto.PokemonDetailDto
+import com.prmto.poxedex.data.dto.PokemonSpeciesDto
 import com.prmto.poxedex.data_generator.abilityDto
 import com.prmto.poxedex.data_generator.pokemonDetailDto
 import com.prmto.poxedex.data_generator.singlePokemon
@@ -28,21 +29,25 @@ class FakePokemonRemoteDataSource : PokemonRemoteDataSource {
         }
     }
 
-    override suspend fun searchPokemons(query: String): NetworkResponse<PokemonDetailDto> {
+    override suspend fun getPokemonDetail(path: String): NetworkResponse<PokemonDetailDto> {
         delay(NETWORK_DELAY)
         return if (isReturnError) {
             NetworkResponse.Error("Error")
         } else {
-            val pokemonDetail = if (query.toIntOrNull() != null) {
-                pokemonDetailsDto.firstOrNull { it.id == query.toInt() }
+            val pokemonDetail = if (path.toIntOrNull() != null) {
+                pokemonDetailsDto.firstOrNull { it.id == path.toInt() }
             } else {
-                pokemonDetailsDto.firstOrNull { it.name == query }
+                pokemonDetailsDto.firstOrNull { it.name == path }
             }
 
             pokemonDetail?.let {
                 NetworkResponse.Success(pokemonDetail)
             } ?: kotlin.run { NetworkResponse.Error("Error") }
         }
+    }
+
+    override suspend fun getPokemonSpecies(pokemonId: String): NetworkResponse<PokemonSpeciesDto> {
+        TODO("Not yet implemented")
     }
 
     companion object {

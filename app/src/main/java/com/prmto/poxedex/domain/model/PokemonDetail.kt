@@ -1,23 +1,33 @@
 package com.prmto.poxedex.domain.model
 
+import androidx.annotation.ColorRes
+import com.prmto.poxedex.domain.util.PokemonUtilFunctions
+
 data class PokemonDetail(
     val id: Int,
     val name: String,
-    val types: List<Type>,
-    val height: Int,
-    val weight: Int,
-    val stats: List<Stat>,
+    val pokemonTypeWithColors: List<PokemonTypeWithColors>,
+    val height: Float,
+    val weight: Float,
+    val stats: Map<StatType, Int>,
+    val species: PokemonSpecies? = null,
+    val abilitiesWithSeparatedWithComma: String
 ) {
-    val pokemonTypeWithColors: List<PokemonTypeWithColors>
-        get() = types.map { PokemonTypeWithColors.valueOf(it.name.uppercase()) }
+    @ColorRes
+    val pokemonColorRes = pokemonTypeWithColors.first().color
+
+    val imageUrl get() = PokemonUtilFunctions.getImageUrl(id = id)
 }
 
-data class Stat(
-    val baseStat: Int,
-    val name: String
-)
+enum class StatType(val value: String) {
+    HP("hp"),
+    ATTACK("attack"),
+    DEFENSE("defense"),
+    SPECIAL_ATTACK("special-attack"),
+    SPECIAL_DEFENSE("special-defense"),
+    SPEED("speed");
 
-data class Type(
-    val slot: Int,
-    val name: String
-)
+    companion object {
+        fun fromValue(value: String) = values().first { it.value == value }
+    }
+}

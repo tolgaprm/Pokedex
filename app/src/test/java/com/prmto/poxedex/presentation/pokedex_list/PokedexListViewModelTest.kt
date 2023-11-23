@@ -192,7 +192,7 @@ class PokedexListViewModelTest {
 
     private fun assertPokemonsImages(pokemons: List<SinglePokemon>) {
         pokemons.forEach {
-            assertThat(it.getImageUrl()).isEqualTo(Constants.POKEMON_IMAGE_URL + it.id + ".png")
+            assertThat(it.imageUrl).isEqualTo(Constants.POKEMON_IMAGE_URL + it.id + ".png")
         }
     }
 

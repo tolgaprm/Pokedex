@@ -1,18 +1,15 @@
 package com.prmto.poxedex.domain.model
 
-import com.prmto.poxedex.common.Constants
+import com.prmto.poxedex.domain.util.PokemonUtilFunctions
 
 data class SinglePokemon(
     val name: String,
     val url: String
 ) {
-    fun getImageUrl(): String {
-        return "${Constants.POKEMON_IMAGE_URL}$id.png"
-    }
+    val imageUrl: String
+        get() = PokemonUtilFunctions.getImageUrl(id = id)
+
 
     val id: Int
-        get() {
-            val index = url.split("/".toRegex()).dropLast(1).last()
-            return index.toInt()
-        }
+        get() = PokemonUtilFunctions.getIdFromUrl(url = url)
 }
