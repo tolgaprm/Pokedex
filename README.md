@@ -37,3 +37,17 @@ This application is the final project of the Pazarama Android Bootcamp, develope
     - [ Flow Turbine](https://github.com/cashapp/turbine) - Turbine is a small testing library for
       kotlinx.coroutines Flow.
     - [Truth](https://truth.dev/) - A library for performing assertions in tests
+ 
+## Screenshots
+
+| PokedexList | Pokedex List Search By Name | Pokedex List Search By Number |
+|---------|---------|---------|
+| ![Pokedex List](screenshots/pokedex_list.png) | ![Pokedex List Search by Name](screenshots/pokedex_list_search_name.png)  |![Pokedex List Search by Number](screenshots/pokedex_list_search_number.png)  |
+
+| Pokedex List Search Error | Pokedex List Error | Pokedex List Sort By Name |
+|---------|---------|---------|
+|  ![Pokedex List Search Error](screenshots/pokedex_list_search_error.png) | ![Pokedex List Error](screenshots/pokedex_list_error.png) | -- |
+
+| Detail Pokemon 1 | Detail Pokemon 2 | Detail Error |
+|---------|---------|--------|
+| ![Detail - Pikachu](screenshots/detail_pikachu.png) | ![Detail - Bulbasaur](screenshots/detail_balbasaur.png)| ![Detail Error](screenshots/detail_error.png) |
