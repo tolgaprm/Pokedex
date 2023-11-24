@@ -6,6 +6,7 @@ object Constants {
     const val POKEMON_IMAGE_URL =
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"
     const val POKEMON_FLAVOR_TEXT_LANGUAGE = "en"
+    const val POKEMON_FLAVOR_VERSION = 10
 }
 
 object PokeApiPaths {
