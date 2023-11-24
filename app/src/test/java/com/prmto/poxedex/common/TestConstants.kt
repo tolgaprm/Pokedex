@@ -1,14 +1,14 @@
 package com.prmto.poxedex.common
 
 import com.prmto.poxedex.data.dto.AllPokemonResponse
-import com.prmto.poxedex.data_generator.abilityDto
-import com.prmto.poxedex.data_generator.flavorTextEntryDto
-import com.prmto.poxedex.data_generator.languageDto
-import com.prmto.poxedex.data_generator.pokemonDetailDto
-import com.prmto.poxedex.data_generator.pokemonSpeciesDto
-import com.prmto.poxedex.data_generator.singlePokemon
-import com.prmto.poxedex.data_generator.statDto
-import com.prmto.poxedex.data_generator.typeDto
+import com.prmto.poxedex.data.dto_generator.abilityDto
+import com.prmto.poxedex.data.dto_generator.flavorTextEntryDto
+import com.prmto.poxedex.data.dto_generator.languageDto
+import com.prmto.poxedex.data.dto_generator.pokemonDetailDto
+import com.prmto.poxedex.data.dto_generator.pokemonSpeciesDto
+import com.prmto.poxedex.data.dto_generator.statDto
+import com.prmto.poxedex.data.dto_generator.typeDto
+import com.prmto.poxedex.domain.model_generator.singlePokemon
 
 object TestConstants {
 
@@ -50,7 +50,9 @@ object TestConstants {
             abilities = listOf(
                 abilityDto("overgrow"),
                 abilityDto("chlorophyll")
-            )
+            ),
+            height = 7,
+            weight = 69
         ),
         pokemonDetailDto(
             id = 5,
@@ -67,7 +69,9 @@ object TestConstants {
             abilities = listOf(
                 abilityDto("blaze"),
                 abilityDto("solar-power")
-            )
+            ),
+            height = 11,
+            weight = 190
         ),
         pokemonDetailDto(
             id = 25,
@@ -84,7 +88,9 @@ object TestConstants {
             abilities = listOf(
                 abilityDto("static"),
                 abilityDto("lightning-rod")
-            )
+            ),
+            height = 4,
+            weight = 60
         )
     )
 
@@ -94,8 +100,9 @@ object TestConstants {
             name = "pikachu",
             flavorTexts = listOf(
                 flavorTextEntryDto(
-                    flavorText = "pikachu_flavor_1_en",
-                    language = languageDto(name = "en")
+                    flavorText = "pikachu\nflavor1\nen",
+                    language = languageDto(name = "en"),
+                    version = 10
                 ),
                 flavorTextEntryDto(
                     flavorText = "pikachu_flavor_2_tr",
@@ -103,7 +110,13 @@ object TestConstants {
                 ),
                 flavorTextEntryDto(
                     flavorText = "pikachu_flavor_3_en",
-                    language = languageDto("en")
+                    language = languageDto("en"),
+                    version = 11
+                ),
+                flavorTextEntryDto(
+                    flavorText = "pikachu_flavor_4_en",
+                    language = languageDto("en"),
+                    version = 10
                 )
             )
         ),

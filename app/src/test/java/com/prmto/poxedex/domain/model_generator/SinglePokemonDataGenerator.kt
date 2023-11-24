@@ -1,4 +1,4 @@
-package com.prmto.poxedex.data_generator
+package com.prmto.poxedex.domain.model_generator
 
 import com.prmto.poxedex.common.Constants
 import com.prmto.poxedex.common.PokeApiPaths

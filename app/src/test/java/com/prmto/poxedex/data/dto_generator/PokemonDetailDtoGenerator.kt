@@ -1,4 +1,4 @@
-package com.prmto.poxedex.data_generator
+package com.prmto.poxedex.data.dto_generator
 
 import com.prmto.poxedex.data.dto.AbilityDto
 import com.prmto.poxedex.data.dto.PokemonDetailDto
@@ -11,14 +11,16 @@ fun pokemonDetailDto(
     name: String,
     types: List<TypeDto>,
     stats: List<StatDto>,
-    abilities: List<AbilityDto>
+    abilities: List<AbilityDto>,
+    height: Int = 7,
+    weight: Int = 69
 ): PokemonDetailDto {
     return PokemonDetailDto(
         id = id,
         name = name,
         types = types,
-        height = 7,
-        weight = 69,
+        height = height,
+        weight = weight,
         stats = stats,
         abilities = abilities
     )

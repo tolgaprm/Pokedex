@@ -1,4 +1,4 @@
-package com.prmto.poxedex.data_generator
+package com.prmto.poxedex.data.dto_generator
 
 import com.prmto.poxedex.data.dto.FlavorTextEntryDto
 import com.prmto.poxedex.data.dto.LanguageDto
@@ -20,12 +20,13 @@ fun pokemonSpeciesDto(
 
 fun flavorTextEntryDto(
     flavorText: String,
-    language: LanguageDto
+    language: LanguageDto,
+    version: Int = 10
 ): FlavorTextEntryDto {
     return FlavorTextEntryDto(
         flavorText = flavorText,
         language = language,
-        version = VersionDto(name = "red", "version1")
+        version = versionDto(version = version)
     )
 }
 
@@ -35,5 +36,14 @@ fun languageDto(
     return LanguageDto(
         name = name,
         url = "$name test url"
+    )
+}
+
+fun versionDto(
+    version: Int
+): VersionDto {
+    return VersionDto(
+        name = "version",
+        url = "https://pokeapi.co/api/v2/version/$version/"
     )
 }

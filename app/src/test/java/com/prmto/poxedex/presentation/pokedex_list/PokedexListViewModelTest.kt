@@ -8,8 +8,8 @@ import com.prmto.poxedex.common.Constants
 import com.prmto.poxedex.common.dispatcher.TestDispatcher
 import com.prmto.poxedex.data.remote.datasource.FakePokemonRemoteDataSource
 import com.prmto.poxedex.data.repository.PokemonRepositoryImpl
-import com.prmto.poxedex.data_generator.singlePokemon
 import com.prmto.poxedex.domain.model.SinglePokemon
+import com.prmto.poxedex.domain.model_generator.singlePokemon
 import com.prmto.poxedex.domain.usecase.GetAllPokemonUseCase
 import com.prmto.poxedex.domain.usecase.SearchPokemonUseCase
 import com.prmto.poxedex.rules.MainDispatcherRule
