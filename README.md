@@ -46,7 +46,7 @@ This application is the final project of the Pazarama Android Bootcamp, develope
 
 | Pokedex List Search Error | Pokedex List Error | Pokedex List Sort By Name |
 |---------|---------|---------|
-|  ![Pokedex List Search Error](screenshots/pokedex_list_search_error.png) | ![Pokedex List Error](screenshots/pokedex_list_error.png) | -- |
+|  ![Pokedex List Search Error](screenshots/pokedex_list_search_error.png) | ![Pokedex List Error](screenshots/pokedex_list_error.png) | ![Pokedex List Sort By Name](screenshots/pokedex_list_sort_by_name.png) |
 
 | Detail Pokemon 1 | Detail Pokemon 2 | Detail Error |
 |---------|---------|--------|
