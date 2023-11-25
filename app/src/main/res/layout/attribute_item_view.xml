@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
+        android:id="@+id/llAttributeItemView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal|center"
+        android:gravity="center_horizontal|center|bottom"
         android:orientation="vertical">
 
         <LinearLayout
@@ -37,7 +38,6 @@
             android:id="@+id/tvAttributeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="@dimen/two_level_margin"
             android:text="@string/weight"
             android:textAlignment="center"

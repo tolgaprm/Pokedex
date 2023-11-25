@@ -40,7 +40,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imvPokemon"
-            tools:visibility="visible" />
+            tools:visibility="gone" />
 
         <include
             android:id="@+id/includeErrorView"
@@ -168,8 +168,8 @@
                 android:layout_width="@dimen/icon_size"
                 android:layout_height="@dimen/icon_size"
                 android:background="@android:color/transparent"
-                android:onClick="@{() -> viewModel.onNextPokemonClick()}"
                 android:contentDescription="@string/next_pokemon"
+                android:onClick="@{() -> viewModel.onNextPokemonClick()}"
                 android:src="@drawable/chevron_right"
                 app:layout_constraintBottom_toBottomOf="@+id/imvPokemon"
                 app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
@@ -229,9 +229,10 @@
                         app:layout_constraintBottom_toBottomOf="@+id/attributeHeight"
                         app:layout_constraintEnd_toStartOf="@+id/divider"
                         app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/attributeHeight"
-                        tools:attributeValue="9,6kg" />
+                        tools:attributeValue="9,6 kg" />
 
                     <View
                         android:id="@+id/divider"
@@ -284,7 +285,7 @@
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/divider2"
                         app:layout_constraintTop_toBottomOf="@+id/tvAboutTitle"
-                        tools:attributeMoves="Chlorophyll Overgrow" />
+                        tools:attributeMoves="Chlorophyll \n Overgrow" />
 
                     <TextView
                         android:id="@+id/tvFlavorText"

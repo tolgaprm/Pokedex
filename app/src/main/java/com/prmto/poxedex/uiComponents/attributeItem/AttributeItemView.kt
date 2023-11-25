@@ -18,6 +18,10 @@ class AttributeItemView @JvmOverloads constructor(
 
     init {
         addView(binding.root)
+        binding.llAttributeItemView.layoutParams = LayoutParams(
+            LayoutParams.MATCH_PARENT,
+            LayoutParams.MATCH_PARENT
+        )
         val styledAttributes = context.obtainStyledAttributes(attrs, R.styleable.AttributeItemView)
 
         styledAttributes.apply {
