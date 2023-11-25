@@ -38,6 +38,10 @@ This application is the final project of the Pazarama Android Bootcamp, develope
       kotlinx.coroutines Flow.
     - [Truth](https://truth.dev/) - A library for performing assertions in tests
  
+## Demo
+
+https://github.com/tolgaprm/Pokedex/assets/53945332/e4a3c707-b5f7-411d-84ef-c3326c957147
+ 
 ## Screenshots
 
 | PokedexList | Pokedex List Search By Name | Pokedex List Search By Number |
