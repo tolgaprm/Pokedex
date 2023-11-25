@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokedexDetailViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle,
+    private val savedStateHandle: SavedStateHandle,
     private val getPokemonDetailUseCase: GetPokemonDetailUseCase,
     private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {
@@ -86,11 +86,17 @@ class PokedexDetailViewModel @Inject constructor(
 
     fun onPreviousPokemonClick() {
         val previousPokemonId = uiState.value.currentPokemonId - 1
-        updatePokemonDetails(previousPokemonId)
+        updatePokemonDetails(newPokemonId = previousPokemonId)
+        setNewPokemonDetailIdToSavedStateHandle(newPokemonId = previousPokemonId)
     }
 
     fun onNextPokemonClick() {
         val nextPokemonId = uiState.value.currentPokemonId + 1
-        updatePokemonDetails(nextPokemonId)
+        updatePokemonDetails(newPokemonId = nextPokemonId)
+        setNewPokemonDetailIdToSavedStateHandle(newPokemonId = nextPokemonId)
+    }
+
+    private fun setNewPokemonDetailIdToSavedStateHandle(newPokemonId: Int) {
+        savedStateHandle[NavArgs.POKEMON_ID] = newPokemonId.toString()
     }
 }
