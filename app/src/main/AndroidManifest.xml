@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Poxedex"
+        android:theme="@style/Theme.Pokedex.SplashScreen"
         tools:targetApi="34">
         <activity
             android:name=".presentation.MainActivity"

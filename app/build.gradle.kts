@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
+    implementation(libs.splash.screen)
 
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.navigation)
