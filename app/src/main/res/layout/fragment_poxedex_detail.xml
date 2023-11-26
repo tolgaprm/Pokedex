@@ -134,15 +134,16 @@
             <!--endregion Title Section -->
 
             <!--region Image Section -->
+
             <ImageView
                 android:id="@+id/imvPokemon"
                 android:layout_width="@dimen/poke_detail_image_size"
                 android:layout_height="@dimen/poke_detail_image_size"
                 android:layout_marginTop="@dimen/six_level_margin"
                 android:contentDescription="@{pokedexDetailUiState.pokemonDetail.name}"
+                android:elevation="5dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtPokedexName"
                 app:loadImage="@{pokedexDetailUiState.pokemonDetail.imageUrl}"
@@ -179,20 +180,23 @@
             <!--endregion Image Section-->
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvPokedexDetail"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginHorizontal="@dimen/one_level_margin"
+                android:layout_marginTop="@dimen/four_level_margin"
                 android:layout_marginBottom="@dimen/one_level_margin"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/small_shape"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imvPokemon">
+                app:layout_constraintTop_toBottomOf="@+id/imbPreviousPokemon">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="56dp">
 
                     <com.google.android.material.chip.ChipGroup
                         android:id="@+id/typeChipGroup"

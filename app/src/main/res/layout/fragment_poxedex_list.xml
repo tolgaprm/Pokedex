@@ -88,6 +88,7 @@
                     android:paddingStart="@dimen/four_level_margin"
                     android:paddingEnd="@dimen/three_level_margin"
                     android:textAppearance="@style/TextAppearance.Poxedex.Body3"
+                    android:textColor="@color/dark_gray_scale"
                     android:textColorHint="@color/medium"
                     app:layout_constraintEnd_toStartOf="@+id/imbSort"
                     app:layout_constraintStart_toStartOf="@+id/imvPokeball"
