@@ -36,9 +36,8 @@ class PokedexDetailViewModel @Inject constructor(
     }
 
     init {
-        savedStateHandle.get<String>(NavArgs.POKEMON_ID)?.let { pokemonId ->
-            updatePokemonDetails(newPokemonId = pokemonId.toInt())
-        }
+        val pokemonId = PokedexDetailFragmentArgs.fromSavedStateHandle(savedStateHandle).pokedexId
+        updatePokemonDetails(newPokemonId = pokemonId.toInt())
     }
 
     private fun getPokemonDetail(
@@ -97,6 +96,6 @@ class PokedexDetailViewModel @Inject constructor(
     }
 
     private fun setNewPokemonDetailIdToSavedStateHandle(newPokemonId: Int) {
-        savedStateHandle[NavArgs.POKEMON_ID] = newPokemonId.toString()
+        savedStateHandle[NavArgs.POKEDEX_ID] = newPokemonId.toString()
     }
 }

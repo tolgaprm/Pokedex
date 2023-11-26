@@ -35,7 +35,7 @@ class PokedexDetailViewModelTest {
     @Before
     fun setUp() {
         remoteDataSource = FakePokemonRemoteDataSource()
-        savedStateHandle = SavedStateHandle(mapOf(NavArgs.POKEMON_ID to "25"))
+        savedStateHandle = SavedStateHandle(mapOf(NavArgs.POKEDEX_ID to "25"))
         val pokemonRepository = PokemonRepositoryImpl(pokemonRemoteDataSource = remoteDataSource)
         val getPokemonDetailUseCase = GetPokemonDetailUseCase(pokemonRepository = pokemonRepository)
         val dispatcherProvider = TestDispatcher()
@@ -108,7 +108,9 @@ class PokedexDetailViewModelTest {
             viewModel.onPreviousPokemonClick()
             val emission = awaitItem()
             assertThat(emission.currentPokemonId).isEqualTo(24)
-            assertThat(savedStateHandle.get<String>(NavArgs.POKEMON_ID)).isEqualTo("24")
+            assertThat(PokedexDetailFragmentArgs.fromSavedStateHandle(savedStateHandle).pokedexId).isEqualTo(
+                "24"
+            )
         }
     }
 
@@ -119,7 +121,9 @@ class PokedexDetailViewModelTest {
             viewModel.onNextPokemonClick()
             val emission = awaitItem()
             assertThat(emission.currentPokemonId).isEqualTo(26)
-            assertThat(savedStateHandle.get<String>(NavArgs.POKEMON_ID)).isEqualTo("26")
+            assertThat(PokedexDetailFragmentArgs.fromSavedStateHandle(savedStateHandle).pokedexId).isEqualTo(
+                "26"
+            )
         }
     }
 

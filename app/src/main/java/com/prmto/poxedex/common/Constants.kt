@@ -15,5 +15,5 @@ object PokeApiPaths {
 }
 
 object NavArgs {
-    const val POKEMON_ID = "pokedexId"
+    const val POKEDEX_ID = "pokedexId"
 }
