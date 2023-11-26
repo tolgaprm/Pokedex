@@ -16,6 +16,7 @@ import com.prmto.poxedex.presentation.pokedex_list.adapter.PokemonListAdapter
 import com.prmto.poxedex.presentation.pokedex_list.sort_dialog.SortDialogFragment
 import com.prmto.poxedex.presentation.util.GridLayoutItemDecoration
 import com.prmto.poxedex.presentation.util.PaginationScrollListener
+import com.prmto.poxedex.presentation.util.setStatusBarColorToPrimary
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -104,6 +105,11 @@ class PokedexListFragment : Fragment() {
                 )
             findNavController().navigate(action)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        requireActivity().setStatusBarColorToPrimary()
     }
 
     override fun onDestroyView() {

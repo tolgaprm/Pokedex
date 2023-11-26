@@ -10,8 +10,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.prmto.poxedex.R
 import com.prmto.poxedex.databinding.FragmentPoxedexDetailBinding
+import com.prmto.poxedex.presentation.util.setStatusBarColor
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -43,13 +43,7 @@ class PokedexDetailFragment : Fragment() {
 
     private fun setupClickListeners() {
         binding.imbNavigateUp.setOnClickListener {
-            setStatusColor(
-                requireContext().resources.getColor(
-                    R.color.red,
-                    requireActivity().theme
-                )
-            )
-            findNavController().navigateUp()
+            findNavController().popBackStack()
         }
 
         binding.includeErrorView.btnErrorTryAgain.setOnClickListener {
@@ -77,22 +71,18 @@ class PokedexDetailFragment : Fragment() {
         }
     }
 
-    private fun setStatusBarAndPokemonColors(colorInt: Int) {
-        val colorResId = requireContext().resources.getColor(
-            colorInt,
+    private fun setStatusBarAndPokemonColors(colorResId: Int) {
+        val colorId = requireContext().resources.getColor(
+            colorResId,
             null
         )
 
-        binding.featureStatsWidget.setAllProgressTints(colorResId)
-        binding.featureStatsWidget.setAllTitleColors(colorResId)
-        binding.flPokedexDetail.setBackgroundColor(colorResId)
-        binding.tvAboutTitle.setTextColor(colorResId)
-        binding.tvBaseStatsTitle.setTextColor(colorResId)
-        setStatusColor(colorResId)
-    }
-
-    private fun setStatusColor(colorResId: Int) {
-        requireActivity().window.statusBarColor = colorResId
+        binding.featureStatsWidget.setAllProgressTints(colorId)
+        binding.featureStatsWidget.setAllTitleColors(colorId)
+        binding.flPokedexDetail.setBackgroundColor(colorId)
+        binding.tvAboutTitle.setTextColor(colorId)
+        binding.tvBaseStatsTitle.setTextColor(colorId)
+        requireActivity().setStatusBarColor(colorId = colorResId)
     }
 
     override fun onDestroyView() {
