@@ -47,8 +47,7 @@ from [PokeApi](https://pokeapi.co/)
     - [Truth](https://truth.dev/) - A library for performing assertions in tests
 
 ## Demo
-
-https://github.com/tolgaprm/Pokedex/assets/53945332/e4a3c707-b5f7-411d-84ef-c3326c957147
+[pokedex_demo.webm](https://github.com/tolgaprm/Pokedex/assets/53945332/ad36d521-dbc2-4a8c-b9cb-a3e3b457bbe2)
 
 ## Screenshots
 
